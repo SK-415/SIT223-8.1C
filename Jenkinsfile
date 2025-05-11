@@ -9,10 +9,10 @@ pipeline {
             post {
                 always {
                     emailext (
-                    subject: "DevSecOps pipeline – build ${currentBuild.currentResult}",
-                    attachmentsPattern: '**/console.log',
-                    body: "Build ${currentBuild.currentResult}. See attached log.",
-                    to: 'justin.song415@qq.com'
+                        subject: "DevSecOps pipeline – build ${currentBuild.currentResult}",
+                        // attachmentsPattern: '**/console.log',
+                        body: "Build ${currentBuild.currentResult}. See attached log.",
+                        to: 'justin.song415@qq.com'
                     )
                 }
             }
@@ -25,10 +25,10 @@ pipeline {
             post {
                 always {
                     emailext (
-                    subject: "DevSecOps pipeline – build ${currentBuild.currentResult}",
-                    attachmentsPattern: '**/console.log',
-                    body: "Build ${currentBuild.currentResult}. See attached log.",
-                    to: 'justin.song415@qq.com'
+                        subject: "DevSecOps pipeline – build ${currentBuild.currentResult}",
+                        // attachmentsPattern: '**/console.log',
+                        body: "Build ${currentBuild.currentResult}. See attached log.",
+                        to: 'justin.song415@qq.com'
                     )
                 }
             }
