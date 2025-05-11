@@ -40,7 +40,7 @@ pipeline {
             steps { echo 'Cypress e2e against staging URL' }
         }
         stage('Deploy to Production') {
-            steps { echo 'ansible-playbook deploy-prod.yml' }
+            steps { echo 'ansible-playbook deploy-dev.yml' }
         }
     }
 }
