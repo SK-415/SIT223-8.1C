@@ -6,12 +6,32 @@ pipeline {
         }
         stage('Unit & Integration Tests') {
             steps { echo 'JUnit via Surefire, Postman/Newman for API ITs' }
+            post {
+                always {
+                    emailext (
+                    subject: "DevSecOps pipeline – build ${currentBuild.currentResult}",
+                    attachmentsPattern: '**/console.log',
+                    body: "Build ${currentBuild.currentResult}. See attached log.",
+                    to: 'justin.song415@qq.com'
+                    )
+                }
+            }
         }
         stage('Code Analysis') {
             steps { echo 'SonarScanner or PMD/SpotBugs' }
         }
         stage('Security Scan') {
             steps { echo 'OWASP Dependency-Check or Snyk CLI' }
+            post {
+                always {
+                    emailext (
+                    subject: "DevSecOps pipeline – build ${currentBuild.currentResult}",
+                    attachmentsPattern: '**/console.log',
+                    body: "Build ${currentBuild.currentResult}. See attached log.",
+                    to: 'justin.song415@qq.com'
+                    )
+                }
+            }
         }
         stage('Deploy to Staging') {
             steps { echo 'ansible-playbook deploy-staging.yml' }
