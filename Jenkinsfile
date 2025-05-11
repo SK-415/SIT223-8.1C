@@ -9,7 +9,7 @@ pipeline {
             post {
                 always {
                     emailext (
-                        subject: "DevSecOps pipeline – build ${currentBuild.currentResult}",
+                        subject: "Unit & Integration Tests – build ${currentBuild.currentResult}",
                         attachLog: true,
                         body: "Build ${currentBuild.currentResult}. See attached log.",
                         to: 'justin.song415@qq.com'
@@ -25,7 +25,7 @@ pipeline {
             post {
                 always {
                     emailext (
-                        subject: "DevSecOps pipeline – build ${currentBuild.currentResult}",
+                        subject: "Security Scan – build ${currentBuild.currentResult}",
                         attachLog: true,
                         body: "Build ${currentBuild.currentResult}. See attached log.",
                         to: 'justin.song415@qq.com'
